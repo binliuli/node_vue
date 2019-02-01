@@ -1,0 +1,25 @@
+{
+    "apps": [
+        {
+            "name": "练习",
+            "script": "./bin/www",
+            "cwd": "./",
+            "watch": [
+                "bin",
+                "lib",
+                "public",
+                "routes",
+                "views"
+            ],
+            "log_date_format": "YYYY-MM-DD HH:mm Z",
+            "error_file": "/data/logs/electronic-err.log",
+            "out_file": "/data/logs/electronic-out.log",
+            "env_local": {
+                "NODE_ENV": "local"
+            },
+            "env_test": {
+                "NODE_ENV": "test"
+            }
+        }
+    ]
+}

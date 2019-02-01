@@ -1,0 +1,23 @@
+const Node_Env = process.env.VUE_APP_CURRENTMODE;
+console.log(Node_Env)
+let webapi = "";
+switch (Node_Env) {
+    case 'testing':
+        console.log("测试环境")
+        webapi = "测试api"
+        break;
+    case "preview":
+        console.log("预发环境")
+        webapi = "预发api"
+        break
+    case "product":
+        console.log("生产环境")
+        webapi = "生产api"
+        break
+    default:
+        console.log("默认参数")
+}
+const GLOBALcONFIG = {
+    webapi: webapi
+}
+export default GLOBALcONFIG;
