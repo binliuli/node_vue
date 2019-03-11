@@ -3,44 +3,34 @@ var request = require('request')
 console.log(Global, "Global")
 function httpRequest(method, url, data) {
     // 封装request请求 post get
-    var requestUrl = Global.xcontractUrl + url;
+    var requestUrl = Global.webapi + url;
     console.log(requestUrl, "真实的java接口地址")
     if (method == "get") {
-        return function (cb) {
-            try {
-                request({
-                    url: requestUrl,
-                    method: "GET",
-                    data
-                },
-                    function (error, response, body) {
-                        var data = JSON.parse(body)
-                        cb(null, data);
-                    }
-                )
-            } catch (err) {
-                commonLog.error('response data error', err);
-                logInfo.error('response data error', err);
-                cb(err, null)
-            }
-        }.bind(this);
+        return new Promise(function (resolve, reject) {
+            request({
+                url: url,
+                method: "GET",
+                form: data
+            }, function (err, response, body) {
+                var data = JSON.parse(body)
+                console.log(data.code, 222)
+                resolve(data)
+                //   res.json(data)
+            })
+        })
     } else if (method == "post") {
-        return function (cb) {
-            try {
-                request({
-                    url: requestUrl,
-                    method: "POST",
-                    data: data
-                }, function (error, response, body) {
-                    var data = JSON.parse(body)
-                    cb(null, data);
-                });
-            } catch (err) {
-                commonLog.error('response data error', err);
-                logInfo.error('response data error', err);
-                cb(err, null)
-            }
-        }.bind(this)
+        return new Promise(function (resolve, reject) {
+            request({
+                url: url,
+                method: "POST",
+                form: data
+            }, function (err, response, body) {
+                var data = JSON.parse(body)
+                console.log(data.code, 222)
+                resolve(data)
+                //   res.json(data)
+            })
+        })
     }
 }
 module.exports = httpRequest;

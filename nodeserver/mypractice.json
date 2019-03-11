@@ -9,7 +9,8 @@
                 "lib",
                 "public",
                 "routes",
-                "views"
+                "views",
+                "config"
             ],
             "log_date_format": "YYYY-MM-DD HH:mm Z",
             "error_file": "/data/logs/electronic-err.log",

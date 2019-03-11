@@ -16,6 +16,7 @@ switch (Node_Env) {
         break
     default:
         console.log("默认参数")
+        webapi = "本地api"
 }
 var GLOBALcONFIG = {
     webapi: webapi

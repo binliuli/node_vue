@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public/assets')));
 
 app.use('/', history()); //关键一步
-app.use('/', indexRouter);
+app.use('/test', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
