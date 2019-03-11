@@ -1,0 +1,13 @@
+##此项目是node做中间层或中间件
+
+##myvuecli
+>npm install
+>npm run serve 本地启动项目
+>npm run build -- test 打包
+>http://localhost:8080/
+
+## nodeserver
+> npm install -g pm2
+> npm install 
+>pm2 delete mypractice.json && pm2 start mypractice.json --env test
+>http://localhost:3000/
