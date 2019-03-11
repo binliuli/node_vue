@@ -9,6 +9,16 @@ export default {
   name: "HelloWorld",
   mounted() {
     console.log(this.$GLOBALcONFIG);
+    this.$ajax
+      .get("http://localhost:3000/test/search", {
+        params: {
+          type: 1,
+          page: 1
+        }
+      })
+      .then(res => {
+        console.log(res);
+      });
   }
 };
 </script>
