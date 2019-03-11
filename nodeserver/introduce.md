@@ -7,7 +7,7 @@
 >http://localhost:8080/
 
 ## nodeserver
-> npm install -g pm2
-> npm install 
->pm2 delete mypractice.json && pm2 start mypractice.json --env test
+>npm install pm2 -g 安装pm2
+>npm install 
+>启动：pm2 delete mypractice.json && pm2 start mypractice.json --env test
 >http://localhost:3000/
