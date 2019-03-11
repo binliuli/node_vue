@@ -1,8 +1,7 @@
-var Global = require("./global");
-var request = require('request')
-console.log(Global, "Global")
+var Global = require("./global"); //根据环境变量，获取对应的IP
+var request = require('request');
+
 function httpRequest(method, url, data) {
-    // 封装request请求 post get
     var requestUrl = Global.webapi + url;
     console.log(requestUrl, "真实的java接口地址")
     if (method == "get") {
@@ -13,9 +12,7 @@ function httpRequest(method, url, data) {
                 form: data
             }, function (err, response, body) {
                 var data = JSON.parse(body)
-                console.log(data.code, 222)
-                resolve(data)
-                //   res.json(data)
+                resolve(data);
             })
         })
     } else if (method == "post") {
@@ -26,9 +23,7 @@ function httpRequest(method, url, data) {
                 form: data
             }, function (err, response, body) {
                 var data = JSON.parse(body)
-                console.log(data.code, 222)
-                resolve(data)
-                //   res.json(data)
+                resolve(data);
             })
         })
     }
