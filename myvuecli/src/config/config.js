@@ -16,8 +16,9 @@ switch (Node_Env) {
         break
     default:
         console.log("默认参数")
+        webapi="http://localhost:3000"
 }
-const GLOBALcONFIG = {
+const GLOBALCONFIG = {
     webapi: webapi
 }
-export default GLOBALcONFIG;
+export default GLOBALCONFIG;
