@@ -62,6 +62,8 @@ export default {
         .then(res => {
           this.list = res.data.data;
         });
+      this.name = "";
+      this.age = "";
     },
     handelDelete(id) {
       this.$ajax
