@@ -42,7 +42,7 @@ router.get('/delete', function (req, res, next) {
     var newObj = {
       "data": newArr
     }
-    var str = JSON.stringify(newObj);
+    var str = JSON.stringify(newObj); ////因为nodejs的写入文件只认识字符串或者二进制数，所以把json对象转换成字符串重新写入json文件中
     fs.writeFile(path.resolve(__dirname, '..' + "/json/user.json"), str, function (err, data) {
       if (err) {
         console.error(err);
