@@ -1,6 +1,6 @@
-##此项目是node做中间层或中间件
+## 不积跬步，无以至千里
 
-##myvuecli
+## myvuecli
 >npm install
 >npm run serve 本地启动项目
 >npm run build -- test 打包 只配了test环境
@@ -13,5 +13,5 @@
 >http://localhost:3000/
 
 
-###功能实现
+## 功能实现
 >读取写入json文件
