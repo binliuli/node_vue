@@ -30,12 +30,11 @@ router.get('/list', function (req, res, next) {
 router.get('/delete', function (req, res, next) {
   var id = req.query.id;
   fs.readFile(path.resolve(__dirname, '..' + "/json/user.json"), 'utf8', function (err, data) {
-    console.log(data);
     var obj = JSON.parse(data)
     var oldArr = obj.data;
     var newArr = []
     for (var i = 0; i < oldArr.length; i++) {
-      if (oldArr[i].id !== id) {
+      if (oldArr[i].id != id) {
         newArr.push(oldArr[i])
       }
     }
@@ -64,10 +63,10 @@ router.get("/add", function (req, res, next) {
     var obj = JSON.parse(data)
     var oldArr = obj.data;
     if (oldArr.length > 0) {
-      data.id = oldArr[oldArr.length - 1].id + 1;
+      addData.id = oldArr[oldArr.length - 1].id + 1;
 
     } else {
-      data.id = 1;
+      addData.id = 1;
     }
     oldArr.push(addData)
 
