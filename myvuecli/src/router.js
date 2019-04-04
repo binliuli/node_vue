@@ -5,6 +5,7 @@ const HelloWorld = r => require.ensure([],()=>r(require('./components/HelloWorld
 const Vuex = r => require.ensure([],()=>r(require('./components/Vuex.vue')),'Vuex')
 const ReadJson = r => require.ensure([],()=>r(require('./components/ReadJson.vue')),'ReadJson')
 const Vis = r => require.ensure([],()=>r(require('./components/visjs.vue')),'vis')
+const D3 = r => require.ensure([],()=>r(require('./components/d3js.vue')),'d3')
 
 Vue.use(Router)
 
@@ -19,6 +20,7 @@ export default new Router({
         { path: "/node", component: ReadJson },
         { path: "/vuex", component: Vuex },
         { path: "/vis", component: Vis },
+        { path: "/d3", component: D3 },
       ]
     }
   ]

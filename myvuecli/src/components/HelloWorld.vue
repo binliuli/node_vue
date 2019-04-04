@@ -15,6 +15,7 @@
         <el-menu-item index="/node">node</el-menu-item>
         <el-menu-item index="/vuex">vuex</el-menu-item>
         <el-menu-item index="/vis">vis关系图</el-menu-item>
+        <el-menu-item index="/d3">d3.js关系图</el-menu-item>
       </el-menu>
     </div>
     <router-view/>
