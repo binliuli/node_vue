@@ -1,120 +1,42 @@
 <template>
   <div class="hello">
     <h1>hello world</h1>
-    <div>
-      <div>
-        姓名：
-        <input type="text" v-model="name">
-        年龄：
-        <input type="text" v-model="age"> &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="delete" @click="handelAdd()">添加</button>
-      </div>
-      <div v-for="item of list" :key="item.id">
-        姓名：{{item.name}} &nbsp;&nbsp;&nbsp;&nbsp;年龄：{{item.age}}&nbsp;&nbsp;&nbsp;&nbsp;
-        <span
-          class="delete"
-          v-on:click="handelDelete(item.id)"
-        >删除</span>
-      </div>
+    <div style="margin-bottom:20px;">
+      <el-menu
+        :default-active="activeIndex2"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b"
+        :router="true"
+      >
+        <el-menu-item index="/node">node</el-menu-item>
+        <el-menu-item index="/vuex">vuex</el-menu-item>
+        <el-menu-item index="/vis">vis关系图</el-menu-item>
+      </el-menu>
     </div>
-    <br>
-    <div>
-      <button @click="handleChangeName()">点击切换名字,下面变为小张（dispatch）</button>
-      <div>{{getUserName()}}</div>
-      <div>{{dispatchName}}</div>
-      <button @click="handleChangeCommitName()">点击切换名字,下面变为小厚(commit)</button>
-      <div>{{getCommitName()}}</div>
-      <div>{{commitName}}</div>
-    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
   data() {
-    return {
-      list: [],
-      name: "",
-      age: ""
-    };
-  },
-  computed: {
-    dispatchName() {
-      return this.$store.state.name;
-    },
-    commitName() {
-      return this.$store.state.commitName;
-    }
-  },
-  mounted() {
-    console.log(this.$GLOBALcONFIG);
-    this.$ajax
-      .get(this.$GLOBALCONFIG.webapi + "/test/search", {
-        params: {
-          type: 1,
-          page: 1
-        }
-      })
-      .then(res => {
-        console.log(res);
-      });
-
-    this.$ajax.get(this.$GLOBALCONFIG.webapi + "/test/list").then(res => {
-      console.log(res);
-      this.list = res.data.data;
-    });
-  },
-  methods: {
-    getCommitName() {
-      return this.$store.state.commitName;
-    },
-    handleChangeCommitName() {
-      this.$store.commit("changeCommitName", "commit-小厚");
-    },
-    handleChangeName() {
-      this.$store.dispatch("changeName", "小张");
-    },
-    getUserName() {
-      return this.$store.state.name;
-    },
-    handelAdd() {
-      console.log(this.name);
-      const data = {
-        name: this.name,
-        age: this.age
+      return {
+        activeIndex: '1',
+        activeIndex2: '1'
       };
-      this.$ajax
-        .get(this.$GLOBALCONFIG.webapi + "/test/add", {
-          params: data
-        })
-        .then(res => {
-          this.list = res.data.data;
-        });
-      this.name = "";
-      this.age = "";
     },
-    handelDelete(id) {
-      this.$ajax
-        .get(this.$GLOBALCONFIG.webapi + "/test/delete", {
-          params: {
-            id: id
-          }
-        })
-        .then(res => {
-          this.list = res.data.data;
-        });
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
     }
-  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-.delete {
-  cursor: pointer;
-  &:hover {
-    color: red;
-  }
-}
 </style>
