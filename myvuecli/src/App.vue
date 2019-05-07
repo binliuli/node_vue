@@ -5,6 +5,7 @@
 </template>
 
 <style lang="less">
+@import "http://visjs.org/dist/vis-network.min.css";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

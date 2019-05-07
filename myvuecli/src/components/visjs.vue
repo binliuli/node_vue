@@ -46,13 +46,59 @@ export default {
 
     // create a network
     var container = document.getElementById("mynetwork");
-    container.style.width = 800 + "px";
-    container.style.height = 500 + "px";
+    // container.style.width = 800 + "px";
+    // container.style.height = 500 + "px";
     var data = {
       nodes: nodes,
       edges: edges
     };
     var options = {
+      layout: { randomSeed: 2 }, // just to make sure the layout is the same when the locale is changed
+      locale: "en",
+      manipulation: {
+        addNode: function(data, callback) {
+          // filling in the popup DOM elements
+          console.log(111);
+          document.getElementById("operation").innerHTML = "Add Node";
+          document.getElementById("node-id").value = data.id;
+          document.getElementById("node-label").value = data.label;
+          document.getElementById("saveButton").onclick = saveData.bind(
+            this,
+            data,
+            callback
+          );
+          document.getElementById("cancelButton").onclick = clearPopUp.bind();
+          document.getElementById("network-popUp").style.display = "block";
+        },
+        editNode: function(data, callback) {
+          // filling in the popup DOM elements
+          console.log(222);
+          document.getElementById("operation").innerHTML = "Edit Node";
+          document.getElementById("node-id").value = data.id;
+          document.getElementById("node-label").value = data.label;
+          document.getElementById("saveButton").onclick = saveData.bind(
+            this,
+            data,
+            callback
+          );
+          document.getElementById("cancelButton").onclick = cancelEdit.bind(
+            this,
+            callback
+          );
+          document.getElementById("network-popUp").style.display = "block";
+        },
+        addEdge: function(data, callback) {
+          console.log(333);
+          if (data.from == data.to) {
+            var r = confirm("Do you want to connect the node to itself?");
+            if (r == true) {
+              callback(data);
+            }
+          } else {
+            callback(data);
+          }
+        }
+      },
       edges: {
         shadow: true, //连接线阴影配置
         smooth: true, //是否显示方向箭头
@@ -110,5 +156,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
+<style lang="less">
+#mynetwork {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  border: 1px solid lightgray;
+}
 </style>
