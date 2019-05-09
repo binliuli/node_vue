@@ -54,50 +54,18 @@ export default {
     };
     var options = {
       layout: { randomSeed: 2 }, // just to make sure the layout is the same when the locale is changed
-      locale: "en",
-      manipulation: {
-        addNode: function(data, callback) {
-          // filling in the popup DOM elements
-          console.log(111);
-          document.getElementById("operation").innerHTML = "Add Node";
-          document.getElementById("node-id").value = data.id;
-          document.getElementById("node-label").value = data.label;
-          document.getElementById("saveButton").onclick = saveData.bind(
-            this,
-            data,
-            callback
-          );
-          document.getElementById("cancelButton").onclick = clearPopUp.bind();
-          document.getElementById("network-popUp").style.display = "block";
-        },
-        editNode: function(data, callback) {
-          // filling in the popup DOM elements
-          console.log(222);
-          document.getElementById("operation").innerHTML = "Edit Node";
-          document.getElementById("node-id").value = data.id;
-          document.getElementById("node-label").value = data.label;
-          document.getElementById("saveButton").onclick = saveData.bind(
-            this,
-            data,
-            callback
-          );
-          document.getElementById("cancelButton").onclick = cancelEdit.bind(
-            this,
-            callback
-          );
-          document.getElementById("network-popUp").style.display = "block";
-        },
-        addEdge: function(data, callback) {
-          console.log(333);
-          if (data.from == data.to) {
-            var r = confirm("Do you want to connect the node to itself?");
-            if (r == true) {
-              callback(data);
-            }
-          } else {
-            callback(data);
-          }
+      locales: {
+        en: {
+          edit: "编辑",
+          del: "隐藏"
         }
+      },
+      manipulation: {
+        // enabled: true,
+        initiallyActive: true,
+        addNode: false,
+        addEdge: false,
+        editEdge: false
       },
       edges: {
         shadow: true, //连接线阴影配置
@@ -146,9 +114,13 @@ export default {
       }
     });
     network.on("click", function(params) {
-      console.log(
-        "click event, getNodeAt returns: " + this.getNodeAt(params.pointer.DOM)
-      );
+      // let obj = document.getElementsByClassName("vis-label");
+      // if (obj[3] && obj[3].innerHTML) {
+      //   obj[3].innerHTML = "删除";
+      // }
+      // console.log(
+      //   "click event, getNodeAt returns: " + this.getNodeAt(params.pointer.DOM)
+      // );
     });
   },
   methods: {}
@@ -157,10 +129,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
+@import "http://visjs.org/dist/vis-network.min.css";
 #mynetwork {
   position: relative;
   width: 800px;
   height: 600px;
   border: 1px solid lightgray;
+}
+div.vis-network div.vis-edit-mode div.vis-label {
+  width: 30px;
+}
+div.vis-network div.vis-close {
+  display: none !important;
 }
 </style>
