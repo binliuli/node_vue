@@ -22,22 +22,26 @@ export default {
     // create an array with edges
     var edges = new vis.DataSet([
       {
+        id: 1,
         from: 1,
         to: 3,
         label: "关系",
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
       },
       {
+        id: 2,
         from: 1,
         to: 2,
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
       },
       {
+        id: 3,
         from: 2,
         to: 4,
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
       },
       {
+        id: 4,
         from: 2,
         to: 5,
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
@@ -114,6 +118,7 @@ export default {
       }
     });
     network.on("click", function(params) {
+      console.log(params.edges);
       // let obj = document.getElementsByClassName("vis-label");
       // if (obj[3] && obj[3].innerHTML) {
       //   obj[3].innerHTML = "删除";
