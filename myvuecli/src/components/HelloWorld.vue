@@ -25,16 +25,28 @@
 <script>
 export default {
   data() {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1'
-      };
+    return {
+      activeIndex: "1",
+      activeIndex2: "1"
+    };
+  },
+  mounted() {
+    const result_one = this.add(1, 1);
+    const result_two = this.add(1);
+    console.log("result_one:", result_one);
+    console.log("result_two:", result_two);
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
     },
-    methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      }
+    getValue() {
+      return 5;
+    },
+    add(first, second = this.getValue()) {
+      return first + second;
     }
+  }
 };
 </script>
 

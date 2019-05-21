@@ -22,26 +22,26 @@ export default {
     // create an array with edges
     var edges = new vis.DataSet([
       {
-        id: 1,
+        id: 10,
         from: 1,
         to: 3,
         label: "关系",
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
       },
       {
-        id: 2,
+        id: 20,
         from: 1,
         to: 2,
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
       },
       {
-        id: 3,
+        id: 30,
         from: 2,
         to: 4,
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
       },
       {
-        id: 4,
+        id: 40,
         from: 2,
         to: 5,
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
