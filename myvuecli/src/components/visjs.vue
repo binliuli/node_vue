@@ -6,21 +6,26 @@
 
 <script>
 import vis from "vis";
+import { setTimeout } from "timers";
 export default {
   data() {
     return {};
   },
   mounted() {
-    var nodes = new vis.DataSet([
-      { id: 1, label: "Node 1" },
-      { id: 2, label: "Node 2" },
-      { id: 3, label: "Node 3" },
-      { id: 4, label: "Node 4" },
-      { id: 5, label: "Node 5" }
-    ]);
-
-    // create an array with edges
-    var edges = new vis.DataSet([
+    let nodesArr = [
+      {
+        id: 1,
+        label: "待解决案件的三",
+        shape: "circle",
+        margin: 10,
+        color: "#FFFF00"
+      },
+      { id: 2, label: "点击", shape: "circle", margin: 10 },
+      { id: 3, label: "的金三角", shape: "circle", margin: 10 },
+      { id: 4, label: "思考角度讲", shape: "circle", margin: 10 },
+      { id: 5, label: "十几家设计师", shape: "circle", margin: 10 }
+    ];
+    let edgesArr = [
       {
         id: 10,
         from: 1,
@@ -46,7 +51,9 @@ export default {
         to: 5,
         color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
       }
-    ]);
+    ];
+    var nodes = new vis.DataSet(nodesArr);
+    var edges = new vis.DataSet(edgesArr);
 
     // create a network
     var container = document.getElementById("mynetwork");
@@ -96,36 +103,83 @@ export default {
         }
       },
       nodes: {
-        shape: "dot",
+        // shape: "dot",
         size: 30,
         color: {
           background: "#fff"
         },
+        widthConstraint: {
+          maximum: 30
+        },
         font: {
-          size: 16,
+          size: 12,
           color: "red"
         },
         borderWidth: 1,
-        shadow: false
+        shadow: true
       }
     };
+
     var network = new vis.Network(container, data, options);
+
+    // let stabilizedTimer;
+    // network.on("stabilized", function (params) {
+    //   window.clearTimeout(stabilizedTimer);
+    //   stabilizedTimer = setTimeout(function () {
+    //     options.physics.enabled = false; // 开启物理系统
+    //     network.setOptions(options);
+    //     // _this.loading = false;//监听 图绘制完 =》取消loading效果
+    //   }, 200);
+    // });
+
+    network.on("oncontext", function(params) {
+      console.log("右击");
+    });
+
     network.on("dragEnd", function(params) {
+      console.log("拖动结束后");
       if (params.nodes && params.nodes.length > 0) {
         network.clustering.updateClusteredNode(params.nodes[0], {
           physics: false
         });
       }
     });
+
+    network.on("doubleClick", function(params) {
+      console.log("双击");
+      if (params.nodes.length != 0) {
+        const id = network.body.data.nodes._data[params.nodes[0]].id;
+        console.log(id);
+        console.log(params);
+        // 通过id获取后台数据
+
+        // 添加节点
+        nodes.add({
+          id: 6,
+          label: "哒哒哒哒哒哒",
+          shape: "circle",
+          margin: 10
+        });
+        edges.add({
+          id: 50,
+          from: 5,
+          to: 6,
+          color: { color: "rgba(30,30,30,0.6)", highlight: "red" }
+        });
+      }
+    });
+
+    network.on("dragging", function(params) {
+      console.log("拖动节点");
+    });
+
+    network.on("zoom", function(params) {
+      console.log("缩放");
+    });
+
     network.on("click", function(params) {
+      console.log("选中节点");
       console.log(params.edges);
-      // let obj = document.getElementsByClassName("vis-label");
-      // if (obj[3] && obj[3].innerHTML) {
-      //   obj[3].innerHTML = "删除";
-      // }
-      // console.log(
-      //   "click event, getNodeAt returns: " + this.getNodeAt(params.pointer.DOM)
-      // );
     });
   },
   methods: {}
