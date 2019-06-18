@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    port: 8080
+    port: 4201
   },
   outputDir: './../nodeserver/public/assets'
 }
