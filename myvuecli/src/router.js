@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const HelloWorld = r => require.ensure([],()=>r(require('./components/HelloWorld.vue')),'hello-world')
-const Vuex = r => require.ensure([],()=>r(require('./components/Vuex.vue')),'Vuex')
-const ReadJson = r => require.ensure([],()=>r(require('./components/ReadJson.vue')),'ReadJson')
-const Vis = r => require.ensure([],()=>r(require('./components/visjs.vue')),'vis')
-const D3 = r => require.ensure([],()=>r(require('./components/d3js.vue')),'d3')
+const HelloWorld = r => require.ensure([], () => r(require('./components/HelloWorld.vue')), 'hello-world')
+const Vuex = r => require.ensure([], () => r(require('./components/Vuex.vue')), 'Vuex')
+const ReadJson = r => require.ensure([], () => r(require('./components/ReadJson.vue')), 'ReadJson')
+const Vis = r => require.ensure([], () => r(require('./components/visjs.vue')), 'vis')
+const D3 = r => require.ensure([], () => r(require('./components/d3js.vue')), 'd3')
+const Practice = r => require.ensure([], () => r(require('./components/Practice.vue')), 'Practice')
 
 Vue.use(Router)
 
@@ -15,12 +16,13 @@ export default new Router({
     {
       path: '/',
       component: HelloWorld,
-      redirect: '/node' ,
+      redirect: '/node',
       children: [
         { path: "/node", component: ReadJson },
         { path: "/vuex", component: Vuex },
         { path: "/vis", component: Vis },
         { path: "/d3", component: D3 },
+        { path: "/practice", component: Practice },
       ]
     }
   ]
