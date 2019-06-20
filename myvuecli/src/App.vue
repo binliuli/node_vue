@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <router-view/>
-    <div id="div1">
+    <!-- <div id="div1">
       <div class="w-center">
         <input type="text" @focus="show=true" v-model="key">
         <ul v-show="show">
           <li v-for="(item,index) of filterArr" :key="index">{{item}}</li>
         </ul>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
