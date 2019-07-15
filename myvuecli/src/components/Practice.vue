@@ -1,27 +1,70 @@
 <template>
   <div>
-    <button @click="handelClick()">点击</button>
-    <p v-for="item of users" :key="item">{{item}}</p>
+    <div class="div1">
+      <vuedraggable class="wrapper" v-model="list" :options="{group:'people',}">
+        <div v-for="item in list" :key="item" class="item">
+          <p>{{item}}</p>
+        </div>
+      </vuedraggable>
+    </div>
+
+    <div>电动机的角度讲</div>
+    <div class="div2">
+      <vuedraggable class="wrapper" v-model="list2" :options="{group:'people',}">
+        <div v-for="item in list2" :key="item" class="item">
+          <p>{{item}}</p>
+        </div>
+      </vuedraggable>
+    </div>
   </div>
 </template>
 
 <script>
+import vuedraggable from "vuedraggable";
 export default {
+  components: { vuedraggable },
   data() {
     return {
-      users: []
+      list: [1, 2, 34, 4, 54],
+      list2: [1333, 2333, 34333]
     };
   },
-  mounted() {
-    const user = [1, 2, 3, 4, 5, 6];
-    this.users = Object.freeze(user);
+  updated() {
+    console.log("list:", this.list);
+    console.log("list2:", this.list2);
   },
-  methods: {
-    handelClick() {
-      const newArr = [7, 8, 9, 10];
-    //   this.users.push(10)
-      this.users = newArr;
-    }
-  }
+  mounted() {},
+  methods: {}
 };
 </script>
+<style scoped>
+/* .wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+} */
+.wrap {
+  width: 100%;
+  height: 200px;
+}
+.item {
+  width: 300px;
+  height: 50px;
+  background-color: #42b983;
+  color: #ffffff;
+  margin-right: 10px;
+  float: left;
+  margin-top: 10px;
+}
+.div1 {
+  width: 100%;
+  height: 200px;
+  background: pink;
+}
+.sortable-ghost {
+  background: red;
+}
+.sortable-chosen {
+  background: #400040;
+}
+</style>
