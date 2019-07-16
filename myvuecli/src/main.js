@@ -6,9 +6,7 @@ import router from './router'
 import store from './store'
 import GLOBALCONFIG from './config/config';
 import axios from "axios"
-import VueDND from 'awe-dnd'
 
-Vue.use(VueDND)
 
 
 Vue.use(ElementUI);

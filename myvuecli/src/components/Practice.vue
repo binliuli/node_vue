@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="div1">
-      <vuedraggable class="wrapper" v-model="list" :options="{group:'people',}">
+      <vuedraggable class="wrapper" v-model="list" :options="{group:'people',}" @end="end">
         <div v-for="item in list" :key="item" class="item">
           <p>{{item}}</p>
         </div>
@@ -14,6 +14,11 @@
         <div v-for="item in list2" :key="item" class="item">
           <p>{{item}}</p>
         </div>
+      </vuedraggable>
+    </div>
+    <div class="div3">
+      <vuedraggable class="wrapper_09" v-model="list2" :options="{group:'people',}">
+        <div class="item">区域</div>
       </vuedraggable>
     </div>
   </div>
@@ -34,7 +39,11 @@ export default {
     console.log("list2:", this.list2);
   },
   mounted() {},
-  methods: {}
+  methods: {
+    end(ev){
+      console.log(ev.to.className)
+    }
+  }
 };
 </script>
 <style scoped>
@@ -66,5 +75,14 @@ export default {
 }
 .sortable-chosen {
   background: #400040;
+}
+.div2 {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.div3 {
+  width: 300px;
+  height: 300px;
+  background: yellowgreen;
 }
 </style>

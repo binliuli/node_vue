@@ -17,6 +17,7 @@
         <el-menu-item index="/vis">vis关系图</el-menu-item>
         <el-menu-item index="/d3">d3.js关系图</el-menu-item>
         <el-menu-item index="/practice">拖拽</el-menu-item>
+        <el-menu-item index="/menu">menu</el-menu-item>
       </el-menu>
     </div>
     <router-view/>
