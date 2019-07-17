@@ -8,6 +8,7 @@ const Vis = r => require.ensure([], () => r(require('./components/visjs.vue')), 
 const D3 = r => require.ensure([], () => r(require('./components/d3js.vue')), 'd3')
 const Practice = r => require.ensure([], () => r(require('./components/Practice.vue')), 'Practice')
 const menu = r => require.ensure([], () => r(require('./components/menu.vue')), 'menu')
+const screenshot = r => require.ensure([], () => r(require('./components/screenshot.vue')), 'screenshot')
 
 Vue.use(Router)
 
@@ -25,6 +26,7 @@ export default new Router({
         { path: "/d3", component: D3 },
         { path: "/practice", component: Practice },
         { path: "/menu", component: menu },
+        { path: "/screenshot", component: screenshot },
       ]
     }
   ]
