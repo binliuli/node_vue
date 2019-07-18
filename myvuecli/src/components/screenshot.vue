@@ -35,7 +35,7 @@ export default {
         outputType: "jpg", //	裁剪生成图片的格式 jpeg || png || webp
         canScale: true, // 图片是否允许滚轮缩放 默认true
         autoCrop: false, // 是否默认生成截图框 默认false
-        canMove: true, //上传图片是否可以移动 默认true
+        canMove: false, //上传图片是否可以移动 默认true
         // autoCropWidth: 0, //默认生成截图框宽度	容器的80%	0~max
         // autoCropHeight: 0, //默认生成截图框高度	容器的80%	0~max
         fixedBox: false, // 固定截图框大小 不允许改变	false	true | false
@@ -63,6 +63,10 @@ export default {
       this.$refs.cropper.getCropData(data => {
         console.log(data.replace("data:image/png;base64,", ""));
       });
+      const data = this.$refs.cropper.getCropAxis();
+      this.$refs.cropper.clearCrop();
+      this.$refs.cropper.stopCrop();
+      console.log(data);
     },
     startCrop() {
       this.$refs.cropper.startCrop();
