@@ -9,6 +9,7 @@ const D3 = r => require.ensure([], () => r(require('./components/d3js.vue')), 'd
 const Practice = r => require.ensure([], () => r(require('./components/Practice.vue')), 'Practice')
 const menu = r => require.ensure([], () => r(require('./components/menu.vue')), 'menu')
 const screenshot = r => require.ensure([], () => r(require('./components/screenshot.vue')), 'screenshot')
+const Aaaa = r => require.ensure([], () => r(require('./components/Aaaa.vue')), 'Aaaa')
 
 Vue.use(Router)
 
@@ -27,6 +28,7 @@ export default new Router({
         { path: "/practice", component: Practice },
         { path: "/menu", component: menu },
         { path: "/screenshot", component: screenshot },
+        { path: "/aaa", component: Aaaa }
       ]
     }
   ]

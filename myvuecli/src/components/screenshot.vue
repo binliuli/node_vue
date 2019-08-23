@@ -46,12 +46,12 @@ export default {
         fixed: false ////是否开启截图框宽高固定比例
         // fixedNumber: [750, 256] // 截图框的宽高比例 [宽度, 高度]
       },
-      url: require("./../assets/m.jpg"),
+      url: "http://192.168.1.174/file/2225/1.jpg",
       cropperSrc: "",
       param: {
         // 上传参数
         originalFilename: "",
-        contentType: "image/jpeg",
+        contentType: "image/png",
         base64: "" // 我们接口要求不要data:image/png;base64,
       },
       flag: true,
@@ -61,12 +61,15 @@ export default {
   methods: {
     getData() {
       this.$refs.cropper.getCropData(data => {
+        console.log(data);
         console.log(data.replace("data:image/png;base64,", ""));
       });
       const data = this.$refs.cropper.getCropAxis();
-      this.$refs.cropper.clearCrop();
-      this.$refs.cropper.stopCrop();
       console.log(data);
+      setTimeout(() => {
+        this.$refs.cropper.clearCrop();
+        this.$refs.cropper.stopCrop();
+      },1000);
     },
     startCrop() {
       this.$refs.cropper.startCrop();
