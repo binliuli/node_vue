@@ -14,6 +14,7 @@
     </div>
     <div @mouseup="handelMouseUp()">选中复制试试看，打印内容</div>
     <div>鼠标选中的内容：{{text}}</div>
+    <el-button type="primary" @click="handelGetCon()">获取选中的内容</el-button>
   </div>
 </template>
 <script>
@@ -25,6 +26,11 @@ export default {
     };
   },
   methods: {
+    handelGetCon() {
+      const text = window.getSelection().toString();
+      this.text = text;
+      console.log(text, 99);
+    },
     handelMouseUp() {
       const text = window.getSelection().toString();
       this.text = text;
