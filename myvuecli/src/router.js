@@ -10,6 +10,7 @@ const Practice = r => require.ensure([], () => r(require('./components/Practice.
 const menu = r => require.ensure([], () => r(require('./components/menu.vue')), 'menu')
 const screenshot = r => require.ensure([], () => r(require('./components/screenshot.vue')), 'screenshot')
 const Aaaa = r => require.ensure([], () => r(require('./components/Aaaa.vue')), 'Aaaa')
+const copy = r => require.ensure([], () => r(require('./components/copy.vue')), 'copy')
 
 Vue.use(Router)
 
@@ -28,7 +29,8 @@ export default new Router({
         { path: "/practice", component: Practice },
         { path: "/menu", component: menu },
         { path: "/screenshot", component: screenshot },
-        { path: "/aaa", component: Aaaa }
+        { path: "/aaa", component: Aaaa },
+        { path: "/copy", component: copy }
       ]
     }
   ]

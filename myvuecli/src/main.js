@@ -6,9 +6,10 @@ import router from './router'
 import store from './store'
 import GLOBALCONFIG from './config/config';
 import axios from "axios"
+import VueClipboard from 'vue-clipboard2'
 
 
-
+Vue.use(VueClipboard)
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false

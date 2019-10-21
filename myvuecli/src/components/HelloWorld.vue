@@ -19,7 +19,8 @@
         <el-menu-item index="/practice">拖拽</el-menu-item>
         <el-menu-item index="/menu">menu</el-menu-item>
         <el-menu-item index="/screenshot">截图</el-menu-item>
-        <el-menu-item index="/aaa">aaaa</el-menu-item>
+        <el-menu-item index="/copy">复制</el-menu-item>
+        <el-menu-item index="/aaa">面试练习</el-menu-item>
       </el-menu>
     </div>
     <router-view />
