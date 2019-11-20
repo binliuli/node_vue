@@ -7,8 +7,9 @@ import store from './store'
 import GLOBALCONFIG from './config/config';
 import axios from "axios"
 import VueClipboard from 'vue-clipboard2'
+import animated from 'animate.css' // npm install animate.css --save安装，再引入
 
-
+Vue.use(animated)
 Vue.use(VueClipboard)
 Vue.use(ElementUI);
 
