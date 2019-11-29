@@ -41,6 +41,9 @@ export default {
     const result_two = this.add(1);
     console.log("result_one:", result_one);
     console.log("result_two:", result_two);
+    this.$ajax.get("/users").then(res => {
+      console.log(res, 9999);
+    });
   },
   methods: {
     handleSelect(key, keyPath) {
