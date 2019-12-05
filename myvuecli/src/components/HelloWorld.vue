@@ -41,8 +41,12 @@ export default {
     const result_two = this.add(1);
     console.log("result_one:", result_one);
     console.log("result_two:", result_two);
-    this.$ajax.get("/users").then(res => {
+    this.$ajax.get("/users?type=c&id=1").then(res => {
       console.log(res, 9999);
+    });
+    this.$ajax.post("/users/bar", {
+      id: 9,
+      time: "2222"
     });
   },
   methods: {

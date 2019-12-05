@@ -8,5 +8,10 @@ router.get('/', function (req, res, next) {
   }
   res.json(obj)
 });
-
+router.get('/name', function (req, res, next) {
+  var obj = {
+    name: 'name',
+  }
+  res.json(obj)
+});
 module.exports = router;
