@@ -22,6 +22,7 @@
         <el-menu-item index="/copy">复制</el-menu-item>
         <el-menu-item index="/aaa">面试练习</el-menu-item>
         <el-menu-item index="/animate">animate</el-menu-item>
+        <el-menu-item index="/tuo">拖拽——02</el-menu-item>
       </el-menu>
     </div>
     <router-view />

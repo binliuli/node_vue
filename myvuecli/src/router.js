@@ -12,6 +12,7 @@ const screenshot = r => require.ensure([], () => r(require('./components/screens
 const Aaaa = r => require.ensure([], () => r(require('./components/Aaaa.vue')), 'Aaaa')
 const copy = r => require.ensure([], () => r(require('./components/copy.vue')), 'copy')
 const animate = r => require.ensure([], () => r(require('./components/animate.vue')), 'animate')
+const tuo = r => require.ensure([], () => r(require('./components/tuo.vue')), 'tuo')
 
 Vue.use(Router)
 
@@ -32,7 +33,8 @@ export default new Router({
         { path: "/screenshot", component: screenshot },
         { path: "/aaa", component: Aaaa },
         { path: "/copy", component: copy },
-        { path: "/animate", component: animate }
+        { path: "/animate", component: animate },
+        { path: "/tuo", component: tuo }
       ]
     }
   ]
