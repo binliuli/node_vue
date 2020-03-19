@@ -23,6 +23,8 @@
         <el-menu-item index="/aaa">面试练习</el-menu-item>
         <el-menu-item index="/animate">animate</el-menu-item>
         <el-menu-item index="/tuo">拖拽——02</el-menu-item>
+        <el-menu-item index="/she">摄像头</el-menu-item>
+        <el-menu-item index="/wen">文字播报</el-menu-item>
       </el-menu>
     </div>
     <router-view />
@@ -65,5 +67,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
-</style>
+<style scoped lang="less"></style>
