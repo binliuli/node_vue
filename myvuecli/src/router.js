@@ -37,7 +37,15 @@ const she = r =>
   require.ensure([], () => r(require("./components/she.vue")), "she");
 const wen = r =>
   require.ensure([], () => r(require("./components/wen.vue")), "wen");
+const alive = r =>
+  require.ensure([], () => r(require("./components/alive.vue")), "alive");
 
+const aliveDetail = r =>
+  require.ensure(
+    [],
+    () => r(require("./components/aliveDetail.vue")),
+    "aliveDetail"
+  );
 Vue.use(Router);
 
 export default new Router({
@@ -60,7 +68,12 @@ export default new Router({
         { path: "/animate", component: animate },
         { path: "/tuo", component: tuo },
         { path: "/she", component: she },
-        { path: "/wen", component: wen }
+        { path: "/wen", component: wen },
+        {
+          path: "/alive",
+          component: alive
+        },
+        { path: "/aliveDetail", component: aliveDetail }
       ]
     }
   ]
