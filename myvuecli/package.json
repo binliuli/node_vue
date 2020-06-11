@@ -16,11 +16,13 @@
     "vue": "^2.5.21",
     "vue-axios": "^2.1.4",
     "vue-clipboard2": "^0.3.1",
+    "vue-pdf": "^4.0.9",
     "vue-router": "^3.0.1",
     "vuedraggable": "^2.23.0",
     "vuex": "^3.0.1",
     "vuex-along": "^1.2.3",
-    "vuex-persistedstate": "^2.5.4"
+    "vuex-persistedstate": "^2.5.4",
+    "worker-loader": "^2.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",

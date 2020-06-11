@@ -46,6 +46,9 @@ const aliveDetail = r =>
     () => r(require("./components/aliveDetail.vue")),
     "aliveDetail"
   );
+
+const pdf = r =>
+  require.ensure([], () => r(require("./components/pdf.vue")), "pdf");
 Vue.use(Router);
 
 export default new Router({
@@ -73,7 +76,8 @@ export default new Router({
           path: "/alive",
           component: alive
         },
-        { path: "/aliveDetail", component: aliveDetail }
+        { path: "/aliveDetail", component: aliveDetail },
+        { path: "/pdf", component: pdf }
       ]
     }
   ]
