@@ -18,7 +18,7 @@
         <el-menu-item index="/d3">d3.js关系图</el-menu-item>
         <el-menu-item index="/practice">拖拽</el-menu-item>
         <el-menu-item index="/menu">menu</el-menu-item>
-        <el-menu-item index="/screenshot">截图</el-menu-item>
+        <el-menu-item index="/screenshot">裁剪</el-menu-item>
         <el-menu-item index="/copy">复制</el-menu-item>
         <el-menu-item index="/aaa">面试练习</el-menu-item>
         <el-menu-item index="/animate">animate</el-menu-item>
@@ -27,6 +27,8 @@
         <el-menu-item index="/wen">文字播报</el-menu-item>
         <el-menu-item index="/alive">keepAlive</el-menu-item>
         <el-menu-item index="/pdf">pdf</el-menu-item>
+        <el-menu-item index="/input">上传预览缩略图</el-menu-item>
+        <el-menu-item index="/scree">固定区域截图</el-menu-item>
       </el-menu>
     </div>
     <keep-alive>

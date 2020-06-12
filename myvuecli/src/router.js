@@ -49,6 +49,13 @@ const aliveDetail = r =>
 
 const pdf = r =>
   require.ensure([], () => r(require("./components/pdf.vue")), "pdf");
+
+const input = r =>
+  require.ensure([], () => r(require("./components/input.vue")), "input");
+const scree = r =>
+  require.ensure([], () => r(require("./components/scree.vue")), "scree");
+Vue.use(Router);
+
 Vue.use(Router);
 
 export default new Router({
@@ -77,7 +84,9 @@ export default new Router({
           component: alive
         },
         { path: "/aliveDetail", component: aliveDetail },
-        { path: "/pdf", component: pdf }
+        { path: "/pdf", component: pdf },
+        { path: "/input", component: input },
+        { path: "/scree", component: scree }
       ]
     }
   ]
