@@ -54,6 +54,8 @@ const input = r =>
   require.ensure([], () => r(require("./components/input.vue")), "input");
 const scree = r =>
   require.ensure([], () => r(require("./components/scree.vue")), "scree");
+const modal = r =>
+  require.ensure([], () => r(require("./components/modal.vue")), "modal");
 Vue.use(Router);
 
 Vue.use(Router);
@@ -86,7 +88,8 @@ export default new Router({
         { path: "/aliveDetail", component: aliveDetail },
         { path: "/pdf", component: pdf },
         { path: "/input", component: input },
-        { path: "/scree", component: scree }
+        { path: "/scree", component: scree },
+        { path: "/modal", component: modal }
       ]
     }
   ]

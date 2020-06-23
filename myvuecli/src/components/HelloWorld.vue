@@ -29,6 +29,7 @@
         <el-menu-item index="/pdf">pdf</el-menu-item>
         <el-menu-item index="/input">上传预览缩略图</el-menu-item>
         <el-menu-item index="/scree">固定区域截图</el-menu-item>
+        <el-menu-item index="/modal">子组件接收值</el-menu-item>
       </el-menu>
     </div>
     <keep-alive>
