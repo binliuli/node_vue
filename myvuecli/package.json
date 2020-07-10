@@ -8,10 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@hellowuxin/mindmap": "^1.7.3",
     "animate.css": "^3.7.2",
     "awe-dnd": "^0.3.4",
     "axios": "^0.18.0",
     "element-ui": "^2.7.2",
+    "html2canvas": "^1.0.0-rc.5",
     "vis": "^4.21.0",
     "vue": "^2.5.21",
     "vue-axios": "^2.1.4",

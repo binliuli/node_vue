@@ -56,8 +56,8 @@ const scree = r =>
   require.ensure([], () => r(require("./components/scree.vue")), "scree");
 const modal = r =>
   require.ensure([], () => r(require("./components/modal.vue")), "modal");
-Vue.use(Router);
-
+const si = r =>
+  require.ensure([], () => r(require("./components/si.vue")), "si");
 Vue.use(Router);
 
 export default new Router({
@@ -89,7 +89,8 @@ export default new Router({
         { path: "/pdf", component: pdf },
         { path: "/input", component: input },
         { path: "/scree", component: scree },
-        { path: "/modal", component: modal }
+        { path: "/modal", component: modal },
+        { path: "/si", component: si }
       ]
     }
   ]
